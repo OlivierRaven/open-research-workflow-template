@@ -79,6 +79,15 @@ summary_table
 model_result <- t.test(measurement ~ treatment, data = data_clean)
 saveRDS(model_result, "outputs/model_result.rds")
 model_result
+
+# Save exactly the values index.qmd needs to report inline. Any
+# filtering/subsetting happens here, in the reproducible record —
+# index.qmd only ever reads this back, it never filters anything itself.
+report_stats <- list(
+  mean_treatment = summary_table$mean[summary_table$treatment == "treatment"],
+  pvalue = model_result$p.value
+)
+saveRDS(report_stats, "outputs/report_stats.rds")
 ```
 
 ## Figure

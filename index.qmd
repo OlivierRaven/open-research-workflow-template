@@ -48,15 +48,17 @@ FILL IN — describe the model(s) from `analysis.qmd` in prose here.
 
 library(tidyverse)
 summary_table <- read_csv("outputs/tables/summary_table.csv")
-model_result <- readRDS("outputs/model_result.rds")
+report_stats <- readRDS("outputs/report_stats.rds")
 ```
 
 <!--
 FILL IN. This setup chunk re-loads what analysis.qmd already computed and
-saved — it doesn't repeat any analysis. Use inline code (single backtick,
-r, a space, your expression, single backtick) in a sentence below to keep
-a reported number in sync with your actual results — e.g. round the
-treatment group's mean, or round(model_result$p.value, 3) for the p-value
+saved — it doesn't repeat any analysis. The rule of thumb: any filtering,
+subsetting, or computation happens in analysis.qmd and gets saved to
+outputs/; this file only ever reads. Use inline code (single backtick, r,
+a space, your expression, single backtick) in a sentence below to keep a
+reported number in sync with your actual results — e.g.
+round(report_stats$mean_treatment, 1) or round(report_stats$pvalue, 3)
 — instead of a hardcoded value someone forgets to update after a revision.
 -->
 
