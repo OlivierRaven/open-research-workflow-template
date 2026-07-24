@@ -3,6 +3,10 @@
 _freeze/
 docs/
 **/*.quarto_ipynb
+*.html
+*.pdf
+*_files/
+*_cache/
 
 # R
 .Rhistory
