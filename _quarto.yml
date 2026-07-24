@@ -1,3 +1,6 @@
+# Settings here apply to every .qmd file in this project by default.
+# index.qmd inherits all of this without repeating it — analysis.qmd
+# overrides `format` down to html-only, since it doesn't need a PDF.
 project:
   type: default
 

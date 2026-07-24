@@ -2,16 +2,6 @@
 title: "FILL IN — manuscript title"
 author: "FILL IN — Your Name"
 date: today
-format:
-  pdf:
-    documentclass: article
-    linestretch: 2
-  html:
-    toc: true
-  # docx:
-  #   reference-doc: journal-template.docx
-bibliography: references/references.bib
-# csl: references/your-journal.csl
 ---
 
 <!--
@@ -19,6 +9,11 @@ This is the clean manuscript. It contains text only — no analysis code.
 Figures and tables are pulled in from outputs/, which analysis.qmd
 produces. Always render analysis.qmd first if you've changed any code,
 so these references are up to date.
+
+Notice how short this frontmatter is: format, bibliography, and csl
+aren't repeated here because _quarto.yml already sets them for the
+whole project. Only add settings here if this file needs to override
+the project default (like analysis.qmd does, to render html-only).
 -->
 
 ## Abstract
