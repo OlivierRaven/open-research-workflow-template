@@ -1,0 +1,18 @@
+project:
+  type: default
+
+format:
+  html:
+    toc: true
+    code-copy: true
+  pdf:
+    documentclass: article
+    papersize: a4
+    fontsize: 12pt
+    linestretch: 2
+    toc: false
+  # docx:                          # FILL IN: uncomment if your journal wants a Word submission
+  #   reference-doc: journal-template.docx
+
+bibliography: references/references.bib
+# csl: references/your-journal.csl # FILL IN: download your target journal's CSL from https://www.zotero.org/styles

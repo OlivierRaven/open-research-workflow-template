@@ -1,0 +1,110 @@
+---
+title: "Analysis: [FILL IN — short working title]"
+format: html
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+<!--
+This file is the reproducible analytical record: every cleaning step,
+model, and figure lives here. index.qmd stays text-only and just
+references the outputs this file produces. See the full guide at
+https://olivierraven.github.io/Open_Research_Workflow/ for why.
+-->
+
+## Setup
+
+```{r}
+#| label: setup
+library(tidyverse)
+
+# FILL IN: add any other packages you need, e.g. library(brms)
+```
+
+## Load raw data
+
+`data/raw/example_data.csv` is placeholder data shipped with this template so
+the project renders out of the box. **Replace it with your own file(s) in
+`data/raw/` and update the path below** — never edit anything inside
+`data/raw/` by hand once real data lands there.
+
+```{r}
+#| label: load-data
+data <- read_csv("data/raw/example_data.csv")
+glimpse(data)
+```
+
+## Data cleaning
+
+```{r}
+#| label: data-cleaning
+
+# FILL IN: replace with your own cleaning logic. This example drops rows
+# with a missing measurement and derives a grouping variable.
+data_clean <- data |>
+  filter(!is.na(measurement)) |>
+  mutate(treatment = factor(treatment, levels = c("control", "treatment")))
+
+write_csv(data_clean, "data/derived/example_data_clean.csv")
+```
+
+## Summary table
+
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "FILL IN — table caption"
+
+summary_table <- data_clean |>
+  summarise(
+    n = n(),
+    mean = mean(measurement),
+    sd = sd(measurement),
+    .by = treatment
+  )
+
+write_csv(summary_table, "outputs/tables/summary_table.csv")
+summary_table
+```
+
+## Statistical model
+
+```{r}
+#| label: model-example
+#| cache: true
+
+# FILL IN: replace with your actual model. This is a placeholder t-test
+# standing in for whatever analysis your question needs.
+model_result <- t.test(measurement ~ treatment, data = data_clean)
+saveRDS(model_result, "outputs/model_result.rds")
+model_result
+```
+
+## Figure
+
+```{r}
+#| label: fig-example
+#| fig-cap: "FILL IN — figure caption"
+
+fig_example <- ggplot(data_clean, aes(x = treatment, y = measurement, fill = treatment)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.15, alpha = 0.5) +
+  scale_fill_manual(values = c("#2E7D6B", "#A8D5C8")) +
+  labs(x = "Treatment", y = "Measurement") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+ggsave("outputs/figures/fig-example.png", fig_example, width = 7, height = 5, dpi = 300)
+fig_example
+```
+
+## Session info
+
+Keep this at the end of every analysis file — a second line of defence
+alongside `renv.lock` for anyone trying to reproduce your work.
+
+```{r}
+#| label: session-info
+sessionInfo()
+```

@@ -1,0 +1,73 @@
+---
+title: "FILL IN — manuscript title"
+author: "FILL IN — Your Name"
+date: today
+format:
+  pdf:
+    documentclass: article
+    linestretch: 2
+  html:
+    toc: true
+  # docx:
+  #   reference-doc: journal-template.docx
+bibliography: references/references.bib
+# csl: references/your-journal.csl
+---
+
+<!--
+This is the clean manuscript. It contains text only — no analysis code.
+Figures and tables are pulled in from outputs/, which analysis.qmd
+produces. Always render analysis.qmd first if you've changed any code,
+so these references are up to date.
+-->
+
+## Abstract
+
+FILL IN — 150–250 words summarising the question, approach, and key finding.
+
+## Introduction
+
+FILL IN. Cite sources with the `[@key]` syntax once you've added entries
+to `references/references.bib`, e.g. [@example2024].
+
+## Methods
+
+### Study design
+
+FILL IN.
+
+### Statistical analysis
+
+FILL IN — describe the model(s) from `analysis.qmd` in prose here.
+
+## Results
+
+FILL IN. Reference the figure and table produced by `analysis.qmd`:
+
+![FILL IN — figure caption matching the one in analysis.qmd](outputs/figures/fig-example.png){#fig-example}
+
+See @fig-example.
+
+<!-- FILL IN: to reference the table from outputs/tables/summary_table.csv,
+     either embed it with a code chunk that reads and formats it, or add a
+     Quarto table cross-reference (see https://quarto.org/docs/authoring/tables.html). -->
+
+## Discussion
+
+FILL IN.
+
+## Data availability
+
+<!--
+FILL IN once you've set up Zenodo (see the full guide, chapter 4):
+
+Data and code supporting this study are available on Zenodo at
+https://doi.org/10.5281/zenodo.XXXXXXX (will be made publicly available
+upon acceptance) and on GitHub at
+https://github.com/yourusername/your-repo-name.
+-->
+
+## References
+
+::: {#refs}
+:::
